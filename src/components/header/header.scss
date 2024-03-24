@@ -1,0 +1,20 @@
+.header-container {
+  background: $mainBgColor;
+  color: $mainTextColor;
+
+  & >.score-container {
+
+    & > .score-container__reset-button {
+      background: $chatCurrentUserBgAndResetButtonAndWinTextColor;
+      border-radius: 0.5rem;
+      transition: all 0.1s linear;
+
+      &:hover {
+        scale: 0.95;
+      }
+      &:active {
+        scale: 0.9;
+      }
+    }
+  }
+}

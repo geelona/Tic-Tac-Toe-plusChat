@@ -1,0 +1,29 @@
+.gameField-container {
+
+  & > h1 {
+    color: $mainTextColor;
+    position: absolute;
+    top: 1.875rem;
+  }
+
+  & > h2 {
+    color: $accentColor;
+    font-size: 2rem;
+  }
+
+  & > .field {
+    background: $fieldBorderColor;
+    width: 19vw;
+    height: 19vw;
+    max-width: 22rem;
+    max-height: 22rem;
+    gap: 0.15rem;
+    border: solid 2vw $mainChatBgColorAndGameFieldBgColor;
+    outline: solid 0.15rem $borderColor;
+    border-radius: 1rem;
+    & > div {
+      background: $mainChatBgColorAndGameFieldBgColor;
+      flex: 1;
+    }
+  }
+}

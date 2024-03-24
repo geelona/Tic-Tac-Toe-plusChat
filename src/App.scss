@@ -1,3 +1,27 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import "./variables.scss";
+@import "./components/header/header.scss", "./components/gameField/gameField.scss", "./components/chat/chat.scss";
+
+.container-and-border {
+  min-height: 100vh;
+  background: $borderColor;
+  border: none;
+
+  & > .playersBoard {
+    flex: 1;
+
+    & > .firstUserSide, .secondUserSide{
+       background: $mainBgColor;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       gap: 2rem;
+    }
+  }
+}
+
+
+
