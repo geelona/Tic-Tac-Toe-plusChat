@@ -6,9 +6,7 @@ const Header = () => {
           Score: <span className="firstPlayerScore">0</span>:
           <span className="secondPlayerScore">0</span>
         </p>
-        <button className="score-container__reset-button text-sm py-2 px-3">
-          Reset
-        </button>
+        <button className="score-container__reset-button text-sm">Reset</button>
       </div>
     </header>
   );

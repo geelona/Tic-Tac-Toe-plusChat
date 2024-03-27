@@ -4,10 +4,16 @@
 
   & >.score-container {
 
+    & > p {
+      font-size: 2vw;
+    }
+
     & > .score-container__reset-button {
       background: $chatCurrentUserBgAndResetButtonAndWinTextColor;
       border-radius: 0.5rem;
       transition: all 0.1s linear;
+      font-size: 1.5vw;
+      padding: 1vw 2vw;
 
       &:hover {
         scale: 0.95;

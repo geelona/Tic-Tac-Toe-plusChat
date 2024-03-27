@@ -10,11 +10,11 @@ function App() {
         <Header />
         <div className="playersBoard grid grid-cols-2 gap-0.5">
           <div className="firstUserSide">
-            <GameField />
+            <GameField playerID={1} />
             <Chat />
           </div>
           <div className="secondUserSide">
-            <GameField />
+            <GameField playerID={2} />
             <Chat />
           </div>
         </div>

@@ -2,9 +2,7 @@ const Chat = () => {
   return (
     <div className="chat-container">
       <div className="infoTab">
-        <div className="playerIcon">
-          <img src="/assets/O.png" alt="player icon" />
-        </div>
+        <div className="playerIcon"></div>
         <p className="nickname">Player</p>
       </div>
       <div className="chatBox">

@@ -8,7 +8,7 @@
 
   & > h2 {
     color: $accentColor;
-    font-size: 2rem;
+    font-size: 2vw;
   }
 
   & > .field {
@@ -21,9 +21,39 @@
     border: solid 2vw $mainChatBgColorAndGameFieldBgColor;
     outline: solid 0.15rem $borderColor;
     border-radius: 1rem;
-    & > div {
+
+    & > .field-el {
+      position: relative;
       background: $mainChatBgColorAndGameFieldBgColor;
       flex: 1;
+      cursor: pointer;
+      transition: all 0.1s linear;
+      overflow: hidden;
+
+      &:hover {
+        background: darken($mainChatBgColorAndGameFieldBgColor, 2%);
+      }
+
+      &:active{
+        background: darken($mainChatBgColorAndGameFieldBgColor, 6%);
+      }
+
+      & > p {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        color: $accentColor;
+        font-size: 5vw;
+        font-weight: bold;
+        user-select: none;
+        pointer-events: none;
+      }
+    }
+
+    & > .field-el--disabled {
+      pointer-events: none;
+      background: darken($mainChatBgColorAndGameFieldBgColor, 2%);
     }
   }
 }
