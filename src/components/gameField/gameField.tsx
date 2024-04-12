@@ -122,10 +122,13 @@ const GameField = ({ playerID }: { playerID: number }) => {
           titleRef.current!.innerText = "You Won!";
           gameFieldContainerFieldRef.current?.classList.add("field--won");
           dispatch(setAddScore({ playerID: playerID }));
-          if (playerID === 1) {
-            dispatch(setNewGameSymbol({ Symbol: "o" }));
-          } else {
+          if (
+            (playerID === 1 && firstPlayerSymbol === "x") ||
+            (playerID === 2 && firstPlayerSymbol === "o")
+          ) {
             dispatch(setNewGameSymbol({ Symbol: "x" }));
+          } else {
+            dispatch(setNewGameSymbol({ Symbol: "o" }));
           }
         } else if (
           (firstPlayerSymbol == field[a] && playerID == 2) ||
