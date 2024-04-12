@@ -12,11 +12,11 @@ function App() {
         <div className="playersBoard grid grid-cols-2 gap-0.5">
           <div className="firstUserSide">
             <GameField playerID={1} />
-            <Chat />
+            <Chat PlayerID={1} />
           </div>
           <div className="secondUserSide">
             <GameField playerID={2} />
-            <Chat />
+            <Chat PlayerID={2} />
           </div>
         </div>
         <Timer />
