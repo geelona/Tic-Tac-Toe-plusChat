@@ -2,6 +2,7 @@ import "./App.scss";
 import Chat from "./components/chat/chat";
 import GameField from "./components/gameField/gameField";
 import Header from "./components/header/header";
+import Timer from "./components/timer/timer";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Chat />
           </div>
         </div>
+        <Timer />
       </div>
     </>
   );

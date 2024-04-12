@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @import "./variables.scss";
-@import "./components/header/header.scss", "./components/gameField/gameField.scss", "./components/chat/chat.scss";
+@import "./components/header/header.scss", "./components/gameField/gameField.scss", "./components/chat/chat.scss", "./components/timer/times.scss";
 
 .container-and-border {
   min-height: 100vh;

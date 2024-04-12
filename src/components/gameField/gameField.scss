@@ -21,6 +21,7 @@
     border: solid 2vw $mainChatBgColorAndGameFieldBgColor;
     outline: solid 0.15rem $borderColor;
     border-radius: 1rem;
+    position: relative;
 
     & > .field-el {
       position: relative;
@@ -51,9 +52,116 @@
       }
     }
 
+    .field__winLine-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      display: none;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        width: 0.25vw;
+        height: 100%;
+        background: white;
+        left: 50%;
+        transform: translate(-50%, 0);
+      }
+    }
+
+    .field__winLine-container-1 {
+      rotate: 90deg;
+      &::after {
+        left: 16%;
+      }
+    }
+
+    .field__winLine-container-2 {
+      rotate: 90deg;
+      &::after {
+        left: 50%;
+      }
+    }
+
+    .field__winLine-container-3 {
+      rotate: 90deg;
+      &::after {
+        left: 84%;
+      }
+    }
+
+    .field__winLine-container-4 {
+      rotate: 0;
+      &::after {
+        left: 16.5%;
+      }
+    }
+
+    .field__winLine-container-5 {
+      rotate: 0;
+      &::after {
+        left: 50%;
+      }
+    }
+
+    .field__winLine-container-6 {
+      rotate: 0;
+      &::after {
+        left: 83.5%;
+      }
+    }
+    
+    .field__winLine-container-7 {
+      rotate: -45deg;
+      &::after {
+        left: 50%;
+        height: 125%;
+        top: -12.5%;
+      }
+    }
+
+    .field__winLine-container-8 {
+      rotate: 45deg;
+      &::after {
+        left: 50%;
+        height: 125%;
+        top: -12.5%;
+      }
+    }
+
     & > .field-el--disabled {
       pointer-events: none;
       background: darken($mainChatBgColorAndGameFieldBgColor, 2%);
     }
+  }
+
+  & > .field--disabled {
+    pointer-events: none;
+  }
+
+  & > .field--active {
+    box-shadow: 0 0 1rem 0.25rem $accentColor;
+  }
+
+  & > .field--draw {
+    outline: solid 0.15rem $accentColor;
+  }
+
+  & > .field--won {
+    outline: solid 0.15rem green;
+  }
+
+  & > .field--lose {
+    outline: solid 0.15rem red;
+  }
+
+  & > canvas {
+    top: 0;
+    left: 0;
+    z-index: 100;
+    pointer-events: none;
   }
 }
