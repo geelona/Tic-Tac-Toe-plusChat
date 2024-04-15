@@ -6,8 +6,8 @@
 @import "./components/header/header.scss", "./components/gameField/gameField.scss", "./components/chat/chat.scss", "./components/timer/times.scss";
 
 .container-and-border {
-  min-height: 100vh;
-  max-height: 100vh;
+  height: 100vh;
+  width: 100vw;
   background: $borderColor;
   border: none;
 

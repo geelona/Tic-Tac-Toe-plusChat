@@ -24,7 +24,6 @@ const GameField = ({ playerID }: { playerID: number }) => {
 
   const titleRef = useRef<HTMLHeadingElement>(null);
   const gameFieldContainerFieldRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const winLineRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -32,12 +31,6 @@ const GameField = ({ playerID }: { playerID: number }) => {
       dispatch(setNewGame());
     }
   }, [timerIsWorking]);
-
-  useEffect(() => {
-    canvasRef.current!.width = window.innerWidth;
-    canvasRef.current!.height = window.innerHeight;
-  });
-
   useEffect(() => {
     const containsNonEmpty = field.some((element) => element !== "");
     if (containsNonEmpty) {
@@ -209,7 +202,6 @@ const GameField = ({ playerID }: { playerID: number }) => {
         <div className="field-el" data-field-id="9"></div>
         <div ref={winLineRef} className="field__winLine-container"></div>
       </div>
-      <canvas ref={canvasRef} className=" absolute"></canvas>
     </div>
   );
 };

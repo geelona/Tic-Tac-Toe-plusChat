@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 import { setRestartGame } from "../../state/gameField/gameFieldSlice";
 import { setTimerOff } from "../../state/timer/timerSlice";
+import { clearChat } from "../../state/chat/chatSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const Header = () => {
           onClick={() => {
             dispatch(setRestartGame());
             dispatch(setTimerOff());
+            dispatch(clearChat());
           }}
         >
           Reset
