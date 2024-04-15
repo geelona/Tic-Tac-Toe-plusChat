@@ -53,13 +53,28 @@
         display: none;
       }
 
-      & > p {
-        flex-shrink: 1;
-        padding: 1rem;
-        color: $mainTextColor;
+      & > div {
+        display: flex;
         border-radius: 1rem;
-      }
 
+
+        & > p {
+          flex-shrink: 1;
+          padding: 1rem;
+          color: $mainTextColor;
+  
+          & > .message-time {
+            color: red
+          }
+        }
+
+        & > .message-time {
+          font-size: 0.8rem;
+          align-self: flex-end;
+          padding: 0.5rem 1rem;
+        }
+      }
+  
       & > .selfmessage--false {
         background: #737373;
         align-self: flex-start;

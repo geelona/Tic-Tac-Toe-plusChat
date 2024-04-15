@@ -1,25 +1,31 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../state/store";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { addMessage } from "../../state/chat/chatSlice";
 
 const Chat = ({ PlayerID }: { PlayerID: number }) => {
   const dispatch = useDispatch();
   const playerIconRef = useRef<HTMLDivElement>(null);
-  const messageInputRef = useRef<HTMLInputElement>(null);
   const messageContainerRef = useRef<HTMLDivElement>(null);
+  const inputMessageRef = useRef<HTMLInputElement>(null);
 
   const messages = useSelector((state: RootState) => state.chat.messages);
   const firstPlayerSymbol = useSelector(
     (state: RootState) => state.gameField.firstPlayerSymbol
   );
 
+  const [inputValue, setInputValue] = useState("");
+
   useEffect(() => {
     messageContainerRef.current!.innerHTML = messages
       .map((message) => {
-        return `<p class="selfmessage--${PlayerID === Number(message[0])}">${
+        return `
+        <div class="selfmessage--${PlayerID === Number(message[0])}">
+        <p >${
           message[1]
-        }</p>`;
+        }</p>
+        <p class="message-time">${message[2]}</p>
+        </div>`;
       })
       .join("");
   }, [messages]);
@@ -41,14 +47,26 @@ const Chat = ({ PlayerID }: { PlayerID: number }) => {
   }, [firstPlayerSymbol]);
 
   function handleSendMessage() {
-    if (messageInputRef.current!.value.trim() === "") {
+    if (inputValue.trim() === "") {
       return;
     }
+    const time = new Date();
+    const hours = time.getHours();
+    const minutes = time.getMinutes();
+    const timeString = `${hours < 10 ? "0" + hours : hours}:${ minutes < 10 ? "0" + minutes : minutes}`;
     dispatch(
-      addMessage({ message: [PlayerID, messageInputRef.current!.value] })
+      addMessage({ message: [PlayerID, inputValue, timeString] })
     );
-    messageInputRef.current!.value = "";
+    setInputValue("");
   }
+
+  document.onkeydown = (e) => {
+    if (e.key === "Enter") {
+      if (document.activeElement === inputMessageRef.current) {
+        handleSendMessage();
+      }
+    }
+  };
 
   return (
     <div className="chat-container">
@@ -62,7 +80,7 @@ const Chat = ({ PlayerID }: { PlayerID: number }) => {
           className="sendMessageContainer
         "
         >
-          <input ref={messageInputRef} type="text" placeholder="Message" />
+          <input ref={inputMessageRef} type="text" placeholder="Message" value={inputValue} onChange={(e) => {setInputValue(e.target.value)}} />
           <button>
             <img
               src="/assets/sendMessage.png"
